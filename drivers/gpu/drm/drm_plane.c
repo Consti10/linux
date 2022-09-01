@@ -1009,6 +1009,13 @@ int drm_mode_setplane(struct drm_device *dev, void *data,
 
 	return ret;
 }
+//Consti10
+int drm_mode_update_plane_fb(struct drm_device *dev,
+			     void *data, struct drm_file *file_priv){
+	DRM_DEBUG_KMS("Consti10 begin\n");
+	DRM_DEBUG_KMS("Consti10 end\n");
+}
+//Consti10
 
 static int drm_mode_cursor_universal(struct drm_crtc *crtc,
 				     struct drm_mode_cursor2 *req,
