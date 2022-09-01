@@ -1014,6 +1014,7 @@ int drm_mode_update_plane_fb(struct drm_device *dev,
 			     void *data, struct drm_file *file_priv){
 	DRM_DEBUG_KMS("Consti10 begin\n");
 	DRM_DEBUG_KMS("Consti10 end\n");
+	return 0;
 }
 //Consti10
 
