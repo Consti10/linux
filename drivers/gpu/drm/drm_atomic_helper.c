@@ -2897,7 +2897,7 @@ int drm_atomic_helper_update_plane(struct drm_plane *plane,
 	struct drm_atomic_state *state;
 	struct drm_plane_state *plane_state;
 	int ret = 0;
-
+	DRM_DEBUG_KMS("Consti10::begin\n");
 	state = drm_atomic_state_alloc(plane->dev);
 	if (!state)
 		return -ENOMEM;
@@ -2928,6 +2928,7 @@ int drm_atomic_helper_update_plane(struct drm_plane *plane,
 	ret = drm_atomic_commit(state);
 fail:
 	drm_atomic_state_put(state);
+	DRM_DEBUG_KMS("Consti10::end\n");
 	return ret;
 }
 EXPORT_SYMBOL(drm_atomic_helper_update_plane);

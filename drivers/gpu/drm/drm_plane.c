@@ -903,7 +903,7 @@ static int __setplane_atomic(struct drm_plane *plane,
 	int ret;
 
 	WARN_ON(!drm_drv_uses_atomic_modeset(plane->dev));
-	DRM_DEBUG_KMS("__setplane_atomic begin\n");
+	DRM_DEBUG_KMS("Consti10::begin\n");
 	/* No fb means shut it down */
 	if (!fb)
 		return plane->funcs->disable_plane(plane, ctx);
@@ -918,14 +918,14 @@ static int __setplane_atomic(struct drm_plane *plane,
 	ret = __setplane_check(plane, crtc, fb,
 			       crtc_x, crtc_y, crtc_w, crtc_h,
 			       src_x, src_y, src_w, src_h);
-	DRM_DEBUG_KMS("__setplane_atomic x\n");
+	DRM_DEBUG_KMS("Consti10::x\n");
 	if (ret)
 		return ret;
 
 	ret=plane->funcs->update_plane(plane, crtc, fb,
 					  crtc_x, crtc_y, crtc_w, crtc_h,
 					  src_x, src_y, src_w, src_h, ctx);
-	DRM_DEBUG_KMS("__setplane_atomic end\n");
+	DRM_DEBUG_KMS("Consti10::end\n");
 	return ret;
 }
 
