@@ -849,7 +849,7 @@ static int __setplane_internal(struct drm_plane *plane,
 			       struct drm_modeset_acquire_ctx *ctx)
 {
 	int ret = 0;
-
+	DRM_DEBUG_KMS("__setplane_internal begin\n");
 	WARN_ON(drm_drv_uses_atomic_modeset(plane->dev));
 
 	/* No fb means shut it down */
@@ -887,7 +887,7 @@ out:
 	if (plane->old_fb)
 		drm_framebuffer_put(plane->old_fb);
 	plane->old_fb = NULL;
-
+	DRM_DEBUG_KMS("__setplane_internal end\n");
 	return ret;
 }
 
@@ -903,7 +903,7 @@ static int __setplane_atomic(struct drm_plane *plane,
 	int ret;
 
 	WARN_ON(!drm_drv_uses_atomic_modeset(plane->dev));
-
+	DRM_DEBUG_KMS("__setplane_atomic begin\n");
 	/* No fb means shut it down */
 	if (!fb)
 		return plane->funcs->disable_plane(plane, ctx);
@@ -918,12 +918,15 @@ static int __setplane_atomic(struct drm_plane *plane,
 	ret = __setplane_check(plane, crtc, fb,
 			       crtc_x, crtc_y, crtc_w, crtc_h,
 			       src_x, src_y, src_w, src_h);
+	DRM_DEBUG_KMS("__setplane_atomic x\n");
 	if (ret)
 		return ret;
 
-	return plane->funcs->update_plane(plane, crtc, fb,
+	ret=plane->funcs->update_plane(plane, crtc, fb,
 					  crtc_x, crtc_y, crtc_w, crtc_h,
 					  src_x, src_y, src_w, src_h, ctx);
+	DRM_DEBUG_KMS("__setplane_atomic end\n");
+	return ret;
 }
 
 static int setplane_internal(struct drm_plane *plane,
@@ -937,7 +940,7 @@ static int setplane_internal(struct drm_plane *plane,
 {
 	struct drm_modeset_acquire_ctx ctx;
 	int ret;
-
+	DRM_DEBUG_KMS("setplane_internal begin\n");
 	DRM_MODESET_LOCK_ALL_BEGIN(plane->dev, ctx,
 				   DRM_MODESET_ACQUIRE_INTERRUPTIBLE, ret);
 
@@ -951,7 +954,7 @@ static int setplane_internal(struct drm_plane *plane,
 					  src_x, src_y, src_w, src_h, &ctx);
 
 	DRM_MODESET_LOCK_ALL_END(plane->dev, ctx, ret);
-
+	DRM_DEBUG_KMS("setplane_internal end\n");
 	return ret;
 }
 
@@ -1329,7 +1332,7 @@ retry:
 	 * to modifier changes.
 	 */
 	if (old_fb->format->format != fb->format->format) {
-		DRM_DEBUG_KMS("Page flip is not allowed to change frame buffer format.\n");
+		DRM_DEBUG_KMS("Page flip is not allowed to change frame buffer format.CONSTI HELLO\n");
 		ret = -EINVAL;
 		goto out;
 	}
