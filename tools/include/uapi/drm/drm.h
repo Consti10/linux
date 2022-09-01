@@ -1071,7 +1071,7 @@ extern "C" {
 #define DRM_IOCTL_MODE_GETPLANE	DRM_IOWR(0xB6, struct drm_mode_get_plane)
 #define DRM_IOCTL_MODE_SETPLANE	DRM_IOWR(0xB7, struct drm_mode_set_plane)
 //Consti10
-#define DRM_IOCTL_MODE_UPDATE_PLANE_FB DRM_IOWR(0xCF, struct drm_mode_update_plane_fb)
+//#define DRM_IOCTL_MODE_UPDATE_PLANE_FB DRM_IOWR(0xCF, struct drm_mode_update_plane_fb)
 //
 #define DRM_IOCTL_MODE_ADDFB2		DRM_IOWR(0xB8, struct drm_mode_fb_cmd2)
 #define DRM_IOCTL_MODE_OBJ_GETPROPERTIES	DRM_IOWR(0xB9, struct drm_mode_obj_get_properties)

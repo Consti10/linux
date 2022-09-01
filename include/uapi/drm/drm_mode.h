@@ -313,7 +313,7 @@ struct drm_mode_set_plane {
 };
 //Consti10
 /* Planes blend with or override other bits on the CRTC */
-struct drm_mode_update_plane_fb {
+/struct drm_mode_update_plane_fb {
 	__u32 plane_id;
 	__u32 crtc_id;
 	__u32 fb_id; /* fb object contains surface format type */

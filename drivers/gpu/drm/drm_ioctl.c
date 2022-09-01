@@ -669,7 +669,7 @@ static const struct drm_ioctl_desc drm_ioctls[] = {
 	DRM_IOCTL_DEF(DRM_IOCTL_MODE_GETPLANE, drm_mode_getplane, 0),
 	DRM_IOCTL_DEF(DRM_IOCTL_MODE_SETPLANE, drm_mode_setplane, DRM_MASTER),
 	//Consti10
-	DRM_IOCTL_DEF(DRM_IOCTL_MODE_UPDATE_PLANE_FB, drm_mode_update_plane_fb, DRM_MASTER),
+	//DRM_IOCTL_DEF(DRM_IOCTL_MODE_UPDATE_PLANE_FB, drm_mode_update_plane_fb, DRM_MASTER),
 	//Consti10
 	DRM_IOCTL_DEF(DRM_IOCTL_MODE_CURSOR, drm_mode_cursor_ioctl, DRM_MASTER),
 	DRM_IOCTL_DEF(DRM_IOCTL_MODE_GETGAMMA, drm_mode_gamma_get_ioctl, 0),
