@@ -311,6 +311,26 @@ struct drm_mode_set_plane {
 	__u32 src_h;
 	__u32 src_w;
 };
+//Consti10
+/* Planes blend with or override other bits on the CRTC */
+struct drm_mode_update_plane_fb {
+	__u32 plane_id;
+	__u32 crtc_id;
+	__u32 fb_id; /* fb object contains surface format type */
+	__u32 flags; /* see above flags */
+
+	/* Signed dest location allows it to be partially off screen */
+	__s32 crtc_x;
+	__s32 crtc_y;
+	__u32 crtc_w;
+	__u32 crtc_h;
+
+	/* Source values are 16.16 fixed point */
+	__u32 src_x;
+	__u32 src_y;
+	__u32 src_h;
+	__u32 src_w;
+};
 
 /**
  * struct drm_mode_get_plane - Get plane metadata.
