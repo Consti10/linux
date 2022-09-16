@@ -2908,10 +2908,11 @@ int drm_atomic_helper_update_plane(struct drm_plane *plane,
 		ret = PTR_ERR(plane_state);
 		goto fail;
 	}
-
+	DRM_DEBUG_KMS("Consti10::processing drm_atomic_set_crtc_for_plane\n");
 	ret = drm_atomic_set_crtc_for_plane(plane_state, crtc);
 	if (ret != 0)
 		goto fail;
+	DRM_DEBUG_KMS("Consti10::processing drm_atomic_set_fb_for_plane\n");
 	drm_atomic_set_fb_for_plane(plane_state, fb);
 	plane_state->crtc_x = crtc_x;
 	plane_state->crtc_y = crtc_y;
@@ -2924,9 +2925,10 @@ int drm_atomic_helper_update_plane(struct drm_plane *plane,
 
 	if (plane == crtc->cursor)
 		state->legacy_cursor_update = true;
-
+	DRM_DEBUG_KMS("Consti10::processing drm_atomic_commit\n");
 	ret = drm_atomic_commit(state);
 fail:
+	DRM_DEBUG_KMS("Consti10::processing drm_atomic_state_put\n");
 	drm_atomic_state_put(state);
 	DRM_DEBUG_KMS("Consti10::end\n");
 	return ret;
