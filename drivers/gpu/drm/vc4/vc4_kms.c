@@ -419,9 +419,13 @@ static void vc4_atomic_commit_tail(struct drm_atomic_state *state)
 
 	drm_atomic_helper_commit_modeset_enables(dev, state);
 
+	drm_dbg(dev, "Consti10 fake VSYNC twice\n");
+	drm_atomic_helper_fake_vblank(state);
 	drm_atomic_helper_fake_vblank(state);
 
 	drm_atomic_helper_commit_hw_done(state);
+
+	drm_dbg(dev, "Consti10 do not wait for flip\n");
 
 	//drm_atomic_helper_wait_for_flip_done(dev, state);
 
