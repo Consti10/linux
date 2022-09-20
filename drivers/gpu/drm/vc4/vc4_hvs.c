@@ -722,6 +722,7 @@ void vc4_hvs_atomic_flush(struct drm_crtc *crtc,
 		DRM_INFO("CRTC %d HVS before:\n", drm_crtc_index(crtc));
 		vc4_hvs_dump_state(hvs);
 	}
+	DRM_INFO("Consti10 vc4_hvs_atomic_flush\n");
 
 	/* Copy all the active planes' dlist contents to the hardware dlist. */
 	do {

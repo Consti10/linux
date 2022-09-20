@@ -899,7 +899,8 @@ static struct drm_plane *vc4_fkms_plane_init(struct drm_device *dev,
 	vc4_plane->mb.tag.req_resp_size = 0;
 	vc4_plane->mb.plane.display = display_num;
 	vc4_plane->mb.plane.plane_id = plane_id;
-	vc4_plane->mb.plane.layer = default_zpos ? default_zpos : -127;
+	//vc4_plane->mb.plane.layer = default_zpos ? default_zpos : -127;
+	vc4_plane->mb.plane.layer = default_zpos ? default_zpos : 2;
 
 	return plane;
 fail:
