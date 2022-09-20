@@ -541,8 +541,10 @@ static int vc4_plane_to_mb(struct drm_plane *plane,
 	mb->plane.dst_x = state->crtc_x;
 	mb->plane.dst_y = state->crtc_y;
 	mb->plane.alpha = state->alpha >> 8;
+	//mb->plane.layer = state->normalized_zpos ?
+	//				state->normalized_zpos : -127;
 	mb->plane.layer = state->normalized_zpos ?
-					state->normalized_zpos : -127;
+				  state->normalized_zpos : 2;
 	mb->plane.num_planes = num_planes;
 	mb->plane.is_vu = vc_fmt->is_vu;
 	mb->plane.planes[0] = bo->paddr + fb->offsets[0];
